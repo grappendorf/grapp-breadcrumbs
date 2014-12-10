@@ -1,0 +1,50 @@
+ <!-- build:process -->
+<!--
+<%= copyright %>
+Element: <%= pkg.name %>
+Version: <%= pkg.version %>
+Description: <%= pkg.description %>
+-->
+<!-- /build -->
+
+<link href="../polymer/polymer.html" rel="import">
+<link href="../grapp-fa-icon/grapp-fa-icon.html" rel="import">
+
+
+<polymer-element name="grapp-breadcrumb" attributes="href" noscript>
+
+  <template>
+    <span>
+      <template if="{{href}}">
+        <a href="{{href}}"><content></content></a>
+      </template>
+      <template if="{{! href}}">
+        <content></content>
+      </template>
+    </span>
+    <grapp-fa-icon icon="caret-right"></grapp-fa-icon>
+  </template>
+
+</polymer-element>
+
+
+<polymer-element name="grapp-breadcrumbs" attributes="render">
+
+  <template>
+
+    <!-- build:style inline dist -->
+    <link rel="stylesheet" href="grapp-breadcrumbs.css">
+    <!-- /build -->
+
+    <template if="{{render}}">
+      <div id="crumbs">
+      </div>
+    </template>
+
+  </template>
+
+  <!-- build:script inline dist -->
+  <script src="grapp-breadcrumbs.js"></script>
+  <!-- /build -->
+
+</polymer-element>

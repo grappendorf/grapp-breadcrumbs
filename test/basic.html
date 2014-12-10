@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>grapp-breadcrumbs basic tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <script src="../lib/web-component-tester/browser.js"></script>
+  <script src="../lib/coffee-script/extras/coffee-script.js"></script>
+
+  <link href="../grapp-breadcrumbs.html" rel="import">
+</head>
+<body>
+
+  <grapp-breadcrumbs id="display" render></grapp-breadcrumbs>
+
+  <grapp-breadcrumbs id="define">
+    <grapp-breadcrumb id="crumb">crumb</grapp-breadcrumb>
+    <grapp-breadcrumb id="crumb_with_href" href="http://example.com">crumb_with_href</grapp-breadcrumb>
+  </grapp-breadcrumbs>
+
+  <script type="text/coffeescript">
+
+    describe 'grapp-breadcrumbs', ->
+
+      it 'should copy the crumb elements to the display element', ->
+        element = document.querySelector '#display'
+        expect(element.$.crumbs.querySelectorAll('grapp-breadcrumb').length).to.equal 2
+
+      it 'should display a span containing the label for each crumb', ->
+        element = document.querySelector '#display'
+        crumb = element.$.crumbs.querySelector '#crumb'
+        expect(crumb.shadowRoot.querySelector('content').getDistributedNodes()[0].textContent).to.equal 'crumb'
+
+      it 'should display a link for each crumb with a href', ->
+        element = document.querySelector '#display'
+        crumb = element.$.crumbs.querySelector '#crumb_with_href'
+        expect(crumb.shadowRoot.querySelector('span a').getAttribute('href')).to.equal 'http://example.com'
+
+  </script>
+
+  <script>
+  </script>
+
+</body>
+</html>

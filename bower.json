@@ -1,0 +1,43 @@
+{
+  "name": "grapp-breadcrumbs",
+  "description": "A web component for displaying breadcrumbs",
+  "version": "0.0.0",
+  "main": "grapp-breadcrumbs.html",
+  "license": "MIT",
+  "ignore": [
+    "bin",
+    "build",
+    "lib",
+    "node_modules",
+    "src",
+    "test",
+    "tmpl",
+    "package.json",
+    "**/.*",
+    "**/*.log",
+    "**/*.sublime-*"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "coyoho",
+    "grappendorf"
+  ],
+  "authors": [
+    "Dirk Grappendorf <dirk@grappendorf.net> (http://www.grappendorf.net)"
+  ],
+  "homepage": "https://github.com/grappendorf/grapp-breadcrumbs",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grappendorf/grapp-breadcrumbs.git"
+  },
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.1",
+    "grapp-fa-icon": "grapp-fa-icon#~0.0.1"
+  },
+  "devDependencies": {
+    "coffee-script": "latest",
+    "jquery": "latest",
+    "web-component-tester": "Polymer/web-component-tester#latest"
+  }
+}
