@@ -1,7 +1,7 @@
 {
   "name": "grapp-breadcrumbs",
   "description": "A web component for displaying breadcrumbs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "grapp-breadcrumbs.html",
   "license": "MIT",
   "ignore": [
