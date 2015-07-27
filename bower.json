@@ -32,8 +32,8 @@
     "url": "git://github.com/grappendorf/grapp-breadcrumbs.git"
   },
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.1",
-    "grapp-fa-icon": "grapp-fa-icon#~0.0.1"
+    "polymer": "Polymer/polymer#~1.0.0",
+    "grapp-fa-icon": "grapp-fa-icon#~0.1.0"
   },
   "devDependencies": {
     "coffee-script": "latest",

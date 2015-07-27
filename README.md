@@ -3,6 +3,8 @@ grapp-breadcrumbs
 
 A web component for displaying breadcrumbs.
 
+Compatible with Polymer 1.0+
+
 Define your crumbs in a content element (for example a page element that is created by an
 app-router):
 
@@ -20,7 +22,7 @@ and display the breadcrumb trail in your header:
 <grapp-breadcrumbs render></grapp-breadcrumbs>
 ```
 
-Attributes
+Properties
 ----------
 
   * **render**
@@ -44,7 +46,7 @@ grapp-breadcrumb
 
 Defines a crumb in the breadcrumb trail.
 
-Attributes
+Properties
 ----------
 
   * **href**

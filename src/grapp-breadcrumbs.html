@@ -1,4 +1,4 @@
- <!-- build:process -->
+<!-- build:process -->
 <!--
 <%= copyright %>
 Element: <%= pkg.name %>
@@ -7,28 +7,34 @@ Description: <%= pkg.description %>
 -->
 <!-- /build -->
 
-<link href="../polymer/polymer.html" rel="import">
-<link href="../grapp-fa-icon/grapp-fa-icon.html" rel="import">
+<link href="../lib/polymer/polymer.html" rel="import">
+<link href="../lib/grapp-fa-icon/grapp-fa-icon.html" rel="import">
 
 
-<polymer-element name="grapp-breadcrumb" attributes="href" noscript>
+<dom-module id="grapp-breadcrumb">
 
   <template>
     <span>
-      <template if="{{href}}">
-        <a href="{{href}}"><content></content></a>
+      <template is="dom-if" if="[[href]]">
+        <a href="[[href]]">
+          <content></content>
+        </a>
       </template>
-      <template if="{{! href}}">
+      <template is="dom-if" if="[[!href]]">
         <content></content>
       </template>
     </span>
     <grapp-fa-icon icon="caret-right"></grapp-fa-icon>
   </template>
 
-</polymer-element>
+  <!-- build:script inline dist_breadcrumb -->
+  <script src="grapp-breadcrumb.js"></script>
+  <!-- /build -->
+
+</dom-module>
 
 
-<polymer-element name="grapp-breadcrumbs" attributes="render">
+<dom-module id="grapp-breadcrumbs">
 
   <template>
 
@@ -36,15 +42,13 @@ Description: <%= pkg.description %>
     <link rel="stylesheet" href="grapp-breadcrumbs.css">
     <!-- /build -->
 
-    <template if="{{render}}">
-      <div id="crumbs">
-      </div>
-    </template>
+    <div id="crumbs" hidden$="[[!render]]">
+    </div>
 
   </template>
 
-  <!-- build:script inline dist -->
+  <!-- build:script inline dist_breadcrumbs -->
   <script src="grapp-breadcrumbs.js"></script>
   <!-- /build -->
 
-</polymer-element>
+</dom-module>

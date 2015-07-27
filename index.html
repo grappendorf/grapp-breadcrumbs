@@ -2,12 +2,9 @@
 <html>
 
 <head>
-
   <title>grapp-breadcrumbs web component</title>
-
-  <script src="lib/webcomponentsjs/webcomponents.min.js"></script>
-  <link href="grapp-breadcrumbs.html" rel="import">
-
+  <script src='lib/webcomponentsjs/webcomponents-lite.min.js'></script>
+  <link href="build/grapp-breadcrumbs.html" rel="import">
 </head>
 
 <body>
@@ -28,20 +25,24 @@
 
   <h2>Demo</h2>
 
-  <template is="auto-binding">
+  <template is="dom-bind">
 
     <grapp-breadcrumbs id="display" render></grapp-breadcrumbs>
 
     <grapp-breadcrumbs id="define">
+      <grapp-breadcrumb>[[counter]]</grapp-breadcrumb>
       <grapp-breadcrumb href="https://www.github.com">github</grapp-breadcrumb>
       <grapp-breadcrumb href="https://www.github.com/grappendorf">grappendorf</grapp-breadcrumb>
       <grapp-breadcrumb href="https://www.github.com/grappendorf/grapp-breadcrumbs">grapp-breadcrumbs</grapp-breadcrumb>
     </grapp-breadcrumbs>
-
   </template>
 
   <script>
     var t = document.querySelector('template');
+    t.counter = 0;
+    setInterval(function() {
+      t.counter += 1;
+    }, 1000);
   </script>
 
   <script src="//localhost:35729/livereload.js"></script>

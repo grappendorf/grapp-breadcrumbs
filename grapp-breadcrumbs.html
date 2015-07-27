@@ -1,6 +1,6 @@
- 
+
 <!--
-Copyright (c) 2014 Dirk Grappendorf, www.grappendorf.net. All rights reserved.
+Copyright (c) 2014-2015 Dirk Grappendorf, www.grappendorf.net. All rights reserved.
 This code may only be used under the MIT style license found in the file LICENSE.txt.
 
 Element: grapp-breadcrumbs
@@ -13,24 +13,47 @@ Description: A web component for displaying breadcrumbs
 <link href="../grapp-fa-icon/grapp-fa-icon.html" rel="import">
 
 
-<polymer-element name="grapp-breadcrumb" attributes="href" noscript>
+<dom-module id="grapp-breadcrumb">
 
   <template>
     <span>
-      <template if="{{href}}">
-        <a href="{{href}}"><content></content></a>
+      <template is="dom-if" if="[[href]]">
+        <a href="[[href]]">
+          <content></content>
+        </a>
       </template>
-      <template if="{{! href}}">
+      <template is="dom-if" if="[[!href]]">
         <content></content>
       </template>
     </span>
     <grapp-fa-icon icon="caret-right"></grapp-fa-icon>
   </template>
 
-</polymer-element>
+<script type="text/javascript">(function() {
+  Polymer({
+    is: 'grapp-breadcrumb',
+    properties: {
+      href: {
+        type: String,
+        value: null
+      },
+      content: {
+        type: Object,
+        notify: true
+      }
+    },
+    ready: function() {
+      return this.content = 'aaa';
+    }
+  });
+
+}).call(this);
+</script>
+
+</dom-module>
 
 
-<polymer-element name="grapp-breadcrumbs" attributes="render">
+<dom-module id="grapp-breadcrumbs">
 
   <template>
 
@@ -43,43 +66,49 @@ grapp-breadcrumb:last-of-type /deep/ grapp-fa-icon {
 }
 </style>
 
-    <template if="{{render}}">
-      <div id="crumbs">
-      </div>
-    </template>
+    <div id="crumbs">
+    </div>
 
   </template>
 
 <script type="text/javascript">(function() {
-  var renderInstance;
+  var crumbs, renderInstance;
 
   renderInstance = null;
 
-  Polymer('grapp-breadcrumbs', {
-    created: function() {
-      return this.render = false;
+  crumbs = [];
+
+  Polymer({
+    is: 'grapp-breadcrumbs',
+    properties: {
+      render: {
+        type: Boolean,
+        value: false
+      }
     },
-    ready: function() {
+    attached: function() {
       if (this.render) {
         renderInstance = this;
+      } else {
+        crumbs = Polymer.dom(this).querySelectorAll('grapp-breadcrumb');
       }
-      if (!this.render) {
-        return renderInstance.setCrumbs(this.querySelectorAll('grapp-breadcrumb'));
+      if (renderInstance) {
+        return renderInstance.updateCrumbs();
       }
     },
-    setCrumbs: function(crumbs) {
-      var crumb, _i, _len, _results;
+    updateCrumbs: function() {
+      var crumb, i, len, results;
       this.$.crumbs.innerHTML = '';
-      _results = [];
-      for (_i = 0, _len = crumbs.length; _i < _len; _i++) {
-        crumb = crumbs[_i];
-        _results.push(this.$.crumbs.appendChild(crumb));
+      results = [];
+      for (i = 0, len = crumbs.length; i < len; i++) {
+        crumb = crumbs[i];
+        results.push(Polymer.dom(this.$.crumbs).appendChild(crumb));
       }
-      return _results;
+      return results;
     }
   });
 
 }).call(this);
 </script>
 
-</polymer-element>
+</dom-module>

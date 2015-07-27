@@ -1,15 +1,21 @@
 renderInstance = null
+crumbs = []
 
-Polymer 'grapp-breadcrumbs',
+Polymer
 
-  created: ->
-    @render = false
+  is: 'grapp-breadcrumbs'
 
-  ready: ->
-    renderInstance = this if @render
-    renderInstance.setCrumbs @querySelectorAll('grapp-breadcrumb') unless @render
+  properties:
+    render: {type: Boolean, value: false}
 
-  setCrumbs: (crumbs) ->
+  attached: ->
+    if @render
+      renderInstance = this
+    else
+      crumbs = Polymer.dom(@).querySelectorAll('grapp-breadcrumb')
+    renderInstance.updateCrumbs() if renderInstance
+
+  updateCrumbs: () ->
     @$.crumbs.innerHTML = ''
     for crumb in crumbs
-      @$.crumbs.appendChild crumb
+      Polymer.dom(@$.crumbs).appendChild crumb
