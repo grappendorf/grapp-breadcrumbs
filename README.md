@@ -56,6 +56,14 @@ Properties
 
     If you specify a href, the crumb label will be wrapped by a link tag.
 
+	
+  * **label**
+  
+    - *type:* string
+    - *default:* undefined
+	  
+    Defines the crumb text.
+	
 Content
 -------
 

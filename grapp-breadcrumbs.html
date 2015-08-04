@@ -19,10 +19,12 @@ Description: A web component for displaying breadcrumbs
     <span>
       <template is="dom-if" if="[[href]]">
         <a href="[[href]]">
+          <span>[[label]]</span>
           <content></content>
         </a>
       </template>
       <template is="dom-if" if="[[!href]]">
+        <span>[[label]]</span>
         <content></content>
       </template>
     </span>
@@ -36,6 +38,9 @@ Description: A web component for displaying breadcrumbs
       href: {
         type: String,
         value: null
+      },
+      label: {
+        type: String
       }
     }
   });

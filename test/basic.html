@@ -17,7 +17,8 @@
   <grapp-breadcrumbs id="display" render></grapp-breadcrumbs>
 
   <grapp-breadcrumbs id="define">
-    <grapp-breadcrumb id="crumb">crumb</grapp-breadcrumb>
+    <grapp-breadcrumb id="crumb_with_content">content</grapp-breadcrumb>
+    <grapp-breadcrumb id="crumb_with_label" label="label"></grapp-breadcrumb>
     <grapp-breadcrumb id="crumb_with_href" href="http://example.com">crumb_with_href</grapp-breadcrumb>
   </grapp-breadcrumbs>
 
@@ -27,12 +28,17 @@
 
       it 'should copy the crumb elements to the display element', ->
         element = document.querySelector '#display'
-        expect(Polymer.dom(element.$.crumbs).querySelectorAll('grapp-breadcrumb').length).to.equal 2
+        expect(Polymer.dom(element.$.crumbs).querySelectorAll('grapp-breadcrumb').length).to.equal 3
 
-      it 'should display a span containing the label for each crumb', ->
+      it 'should display a span containing the content of each crumb', ->
         element = document.querySelector '#display'
-        crumb = Polymer.dom(element.$.crumbs).querySelector '#crumb'
-        expect(crumb.querySelector('span').textContent.trim()).to.equal 'crumb'
+        crumb = Polymer.dom(element.$.crumbs).querySelector '#crumb_with_content'
+        expect(crumb.querySelector('span').textContent.trim()).to.equal 'content'
+
+      it 'should display a span containing the label of each crumb', ->
+        element = document.querySelector '#display'
+        crumb = Polymer.dom(element.$.crumbs).querySelector '#crumb_with_label'
+        expect(crumb.querySelector('span').textContent.trim()).to.equal 'label'
 
       it 'should display a link for each crumb with a href', ->
         element = document.querySelector '#display'

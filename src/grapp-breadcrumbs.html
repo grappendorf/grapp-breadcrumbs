@@ -17,10 +17,12 @@ Description: <%= pkg.description %>
     <span>
       <template is="dom-if" if="[[href]]">
         <a href="[[href]]">
+          <span>[[label]]</span>
           <content></content>
         </a>
       </template>
       <template is="dom-if" if="[[!href]]">
+        <span>[[label]]</span>
         <content></content>
       </template>
     </span>
