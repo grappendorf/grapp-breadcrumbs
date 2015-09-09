@@ -31,12 +31,12 @@
     "url": "git://github.com/grappendorf/grapp-breadcrumbs.git"
   },
   "dependencies": {
-    "polymer": "Polymer/polymer#~1.0.0",
-    "grapp-fa-icon": "grapp-fa-icon#~0.1.0"
+    "polymer": "Polymer/polymer#^1.0.0",
+    "grapp-fa-icon": "grapp-fa-icon#^0.1.0"
   },
   "devDependencies": {
-    "web-component-tester": "Polymer/web-component-tester#3.1.7",
-    "jquery": "2.1.4",
-    "coffee-script": "1.9.3"
+    "coffee-script": "^1.10.0",
+    "jquery": "^2.1.4",
+    "web-component-tester": "Polymer/web-component-tester#3.1.7"
   }
 }
