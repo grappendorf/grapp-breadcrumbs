@@ -12,7 +12,6 @@ Description: A web component for displaying breadcrumbs
 <link href="../polymer/polymer.html" rel="import">
 <link href="../grapp-fa-icon/grapp-fa-icon.html" rel="import">
 
-
 <dom-module id="grapp-breadcrumb">
 
   <template>
@@ -53,20 +52,18 @@ Description: A web component for displaying breadcrumbs
 
 <dom-module id="grapp-breadcrumbs">
 
-  <template>
-
-<style>grapp-breadcrumb grapp-fa-icon {
+<style> /deep/ grapp-breadcrumb grapp-fa-icon {
   margin-left: 0.3em;
   margin-right: 0.3em;
 }
-grapp-breadcrumb:last-of-type grapp-fa-icon {
+ /deep/ grapp-breadcrumb:last-of-type grapp-fa-icon {
   display: none;
 }
 </style>
 
+  <template>
     <div id="crumbs" hidden$="[[!render]]">
     </div>
-
   </template>
 
 <script type="text/javascript">(function() {
