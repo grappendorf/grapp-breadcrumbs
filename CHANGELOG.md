@@ -1,3 +1,12 @@
+<a name="0.1.5"></a>
+### 0.1.5 (2015-09-17)
+
+
+#### Bug Fixes
+
+* style location ([c08dc7d6](http://github.com/grappendorf/grapp-breadcrumbs/commit/c08dc7d67218dd9eaffea559d50aad8693c79951))
+
+
 <a name="0.1.4"></a>
 ### 0.1.4 (2015-09-17)
 
