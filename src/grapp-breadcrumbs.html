@@ -12,11 +12,12 @@ Description: <%= pkg.description %>
 
 <dom-module id="grapp-breadcrumb">
 
-  <!-- build:style inline grapp-breadcrumb -->
-  <link rel="import" type="css" href="grapp-breadcrumbs.css">
-  <!-- /build -->
-
   <template>
+
+    <!-- build:style inline grapp-breadcrumb -->
+    <link rel="stylesheet" href="grapp-breadcrumbs.css">
+    <!-- /build -->
+
     <span>
       <template is="dom-if" if="[[href]]">
         <a href="[[href]]">
