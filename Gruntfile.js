@@ -58,11 +58,11 @@ module.exports = function(grunt) {
         dest: './build/',
         options: {
           scripts: {
-            dist_breadcrumb: ['build/grapp-breadcrumb.js'],
-            dist_breadcrumbs: ['build/grapp-breadcrumbs.js']
+            'grapp-breadcrumb': ['build/grapp-breadcrumb.js'],
+            'grapp-breadcrumbs': ['build/grapp-breadcrumbs.js']
           },
           styles: {
-            dist: ['build/*.css']
+            'grapp-breadcrumb': ['build/grapp-breadcrumb.css']
           },
           data: {
             copyright: grunt.file.read('tmpl/copyright.tmpl')
